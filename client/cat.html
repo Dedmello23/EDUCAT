@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Attendance Cat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer=""></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;display=swap&amp;family=Poppins:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background: linear-gradient(to right, #1c8a0b,#75cd24);
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        .mood {
+            display: none;
+            transition: opacity 0.8s ease-in-out;
+        }
+        p {
+            font-size: 1.2em;
+            color: #000000;
+            font-weight: 300;
+        }
+        .logout-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: rgb(255, 253, 253);
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body onload="updateCatMood()">
+    <div class="container">
+        <h1>Your Attendance Cat</h1>
+        
+        
+        <div id="mood1" class="mood">
+            <dotlottie-player src="https://lottie.host/e62fc6b6-3855-46d4-9b74-78be51b565a6/JgFky7K3e2.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+        <p>Optimistic Mood</p>
+        </div>
+
+        
+        <div id="mood2" class="mood">
+            <dotlottie-player src="https://lottie.host/5403fbad-fb12-42b0-ad58-4dba76d8bef8/Y1rywqPkei.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+        <p>Cautious Mood</p>
+        </div>
+
+        
+        <div id="mood3" class="mood">
+            <dotlottie-player src="https://lottie.host/b552ca51-bde3-4ae9-80cd-4993a52fdde8/52WnddNuf3.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+        <p>Despair Mood</p>
+        </div>
+
+        <p id="attendanceMessage"></p>
+        <a href="http://127.0.0.1:5500/client/logout.html" class="logout-btn">Logout</a>
+        
+    </div>
+
+    <script>
+        function updateCatMood() {
+            const moods = ['mood1', 'mood2', 'mood3'];
+            const health = Math.random();
+            
+            let selectedMood = 'mood1';
+            if (health > 0.66) {
+                selectedMood = 'mood1';
+            } else if (health > 0.33) {
+                selectedMood = 'mood2';
+            } else {
+                selectedMood = 'mood3';
+            }
+            moods.forEach(mood => document.getElementById(mood).style.display = 'none');
+            const activeMood = document.getElementById(selectedMood);
+            activeMood.style.display = 'block';
+            activeMood.style.opacity = 0;
+            setTimeout(() => activeMood.style.opacity = 1, 100);
+        }
+    </script>
+</body>
+</html>

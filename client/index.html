@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>educat login
+    </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://wallpapercat.com/w/full/2/6/8/1198600-1920x1080-desktop-1080p-studio-ghibli-wallpaper.jpg'); /* Use your image URL */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+        }
+        .container {
+            background: rgba(254, 255, 253, 0.826); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(179, 249, 74, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #6fc908a4;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #e0ff65;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #de7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button onclick="login()"><a href="http://127.0.0.1:5500/client/subjects.html">
+        Login</a></button>
+        <a href="http://127.0.0.1:5500/client/signup.html" >Don't Have An Account?</a>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            alert('Username: ' + username + '\nPassword: ' + password); 
+        }
+    
+    </script>
+</body>
+</html>
